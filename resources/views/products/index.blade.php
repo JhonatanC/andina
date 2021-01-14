@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h3>Listado de productos</h3>
+            <a class="btn btn-primary mb-3" href="{{ route('products.create') }}">+ Agregar producto</a>
         </div>
     </div>
 

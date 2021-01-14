@@ -29,6 +29,7 @@
 
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Actualizar Producto">
+                    <a href="{{ route('products.index') }}" class="btn btn-danger">Regresar</a>
                 </div>
             </form>
         </div>

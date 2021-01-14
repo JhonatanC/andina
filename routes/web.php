@@ -15,8 +15,18 @@
 //     return view('welcome');
 // });
 
-Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'ProductController@index');
+Route::get('/', 'CartController@shop')->name('shop');
+Route::get('/cart', 'CartController@cart')->name('cart.index');
+Route::post('/add', 'CartController@add')->name('cart.store');
+Route::post('/update', 'CartController@update')->name('cart.update');
+Route::post('/remove', 'CartController@remove')->name('cart.remove');
+Route::post('/clear', 'CartController@clear')->name('cart.clear');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'ProductController@index');
-Route::resource('products', 'ProductController');
+Route::get('products', 'ProductController@home');
+
+Route::prefix('admin')->group(function () {
+    Auth::routes();
+    Route::resource('products', 'ProductController')->middleware('auth');
+});

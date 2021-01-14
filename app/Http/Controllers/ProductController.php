@@ -12,9 +12,15 @@ class ProductController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+    public function home()
     {
-        $this->middleware('auth');
+        $products = Product::all();
+        return view('products.home',compact('products'));
     }
     
     /**
